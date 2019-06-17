@@ -51,9 +51,9 @@ type AzureKeyVault struct {
 type AzureKeyVaultObject struct {
 	Name        string                         `json:"name"`
 	Type        AzureKeyVaultObjectType        `json:"type"`
-	Version     string                         `json:"version"`
-	Poll        bool                           `json:"bool"`
-	ContentType AzureKeyVaultObjectContentType `json:"contentType"`
+	Version     string                         `json:"version,omitempty"`
+	Poll        bool                           `json:"bool,omitempty"`
+	ContentType AzureKeyVaultObjectContentType `json:"contentType,omitempty"`
 }
 
 // AzureKeyVaultObjectType defines which Object type to get from Azure Key Vault
@@ -93,7 +93,7 @@ type AzureKeyVaultOutputSecret struct {
 	Name string `json:"name"`
 	// +optional
 	Type    corev1.SecretType `json:"type,omitempty"`
-	DataKey string            `json:"dataKey"`
+	DataKey string            `json:"dataKey,omitempty"`
 }
 
 // AzureKeyVaultSecretStatus is the status for a AzureKeyVaultSecret resource
